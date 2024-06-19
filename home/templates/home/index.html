@@ -1,0 +1,47 @@
+{%extends "base.html"%}
+{% block start %}
+
+
+    <h1>Hey!! Welcome to the Django World!!!</h1>
+    <h2>Have a good time !!</h2>
+    
+
+    <a href="/about/" class="hrrf">
+      About
+    </a>
+    <a href="/contact/" class="hrrf">
+      Contact
+    </a>
+    <a href="/recipes/" class="hrrf">
+      recipes
+    </a>
+
+
+     For showing the django data on screen without writing the html code
+    {{data}}
+
+    <table class="container">
+        <tr>
+          <th>SNO.</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Vote</th>
+        </tr>
+        {% for d in data %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{d.Name}}</td>
+          <td>{{d.Age}}</td>
+          <td>
+            {% if d.Age >= 18 %}
+            👍
+            {% else %}
+            👎
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+
+{% endblock %}
